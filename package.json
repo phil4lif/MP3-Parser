@@ -1,0 +1,35 @@
+{
+  "name": "foundation-health-activity",
+  "version": "1.0.0",
+  "description": "Coding Challenge for Foundation Health",
+  "homepage": "https://github.com/phil4lif/Foundation-Health-Activity#readme",
+  "bugs": {
+    "url": "https://github.com/phil4lif/Foundation-Health-Activity/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phil4lif/Foundation-Health-Activity.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@typescript-eslint/eslint-plugin": "^8.48.0",
+    "@typescript-eslint/parser": "^8.48.0",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
+    "nodemon": "^3.1.11",
+    "prettier": "^3.7.2",
+    "typescript": "^5.9.3"
+  }
+}

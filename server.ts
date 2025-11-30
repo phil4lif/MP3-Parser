@@ -19,9 +19,7 @@ const server = http.createServer((req, res) => {
 
     req.on('end', () => {
       const mp3Buffer = Buffer.concat(bodyChunks);
-      const frameCount = analyzeBuffer(mp3Buffer)
-
-
+      const frameCount = analyzeBuffer(mp3Buffer);
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({
         frameCount

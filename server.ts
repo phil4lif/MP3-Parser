@@ -1,14 +1,6 @@
 import http from 'http';
 import { analyzeBuffer } from './controllers/index.ts';
 
-
-
-// Frame Header is 4 bytes long
-// First byte is all 1s
-// second byte starts with three 1s
-
-
-
 const server = http.createServer((req, res) => {
   if (req.url?.toLowerCase() === '/file-upload' && req.method === 'POST') {
     const bodyChunks: any[] = [];
@@ -19,11 +11,18 @@ const server = http.createServer((req, res) => {
 
     req.on('end', () => {
       const mp3Buffer = Buffer.concat(bodyChunks);
-      const frameCount = analyzeBuffer(mp3Buffer);
-      res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({
-        frameCount
-      }))
+      console.log('mp3Buffer', mp3Buffer)
+      const { frameCount, error } = analyzeBuffer(mp3Buffer);
+      if (error) {
+        res.writeHead(415, error.message)
+        res.end(JSON.stringify({error: error.message}))
+      } else {
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({
+          frameCount
+        }))
+      }
+
     })
 
   } else {

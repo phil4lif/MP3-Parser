@@ -30,3 +30,10 @@ export const mpeg1SampleRateMap = {
   '10': 32000,
   '11': 'reserv.'
 }
+
+export const audioVersionIDMap = {
+  '00': 'MPEG Version 2.5',
+  '01': 'reserved',
+  '10': 'MPEG Version 2',
+  '11': 'MPEG Version 1'
+}

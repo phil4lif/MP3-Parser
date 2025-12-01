@@ -7,6 +7,9 @@ interface AnalysisResult {
 }
 
 function analyzeHeader(file: Buffer, i: number): AnalysisResult {
+  // I am converting bytes to binary strings.
+  // I think this is ok, and makes the dictionaries a little more readable,
+  // but I think using the bit shifting and bit operators would be a "better" solution
   const byte2 = file[i + 1].toString(2).padStart(8, '0');
   const byte3 = file[i + 2].toString(2).padStart(8, '0');
   const audioVersionBits = byte2.substring(3,5)
